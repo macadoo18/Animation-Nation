@@ -1,0 +1,315 @@
+$sun: #feff01;
+$sky: #9bc9fb;
+$treeTop: #89d21e;
+$trunk: #da6f41;
+$grass: #90dd5d;
+
+.container {
+  position: relative;
+  border: 2px solid black;
+  width: 1000px;
+  height: 800px;
+  margin: auto;
+  overflow: hidden;
+
+  .sun-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 30px;
+    margin-left: auto;
+    background: $sun;
+    right: 60px;
+    top: 60px;
+    z-index: 1;
+    animation: 5s ease-in 0s infinite sunset;
+
+    .sun-line {
+      position: absolute;
+      height: 50%;
+      width: 50%;
+      transform-origin: bottom right;
+
+      &::after {
+        position: absolute;
+        content: '';
+        bottom: 0px;
+        right: 0px;
+        height: 65px;
+        width: 4px;
+        background: $sun;
+        transform: translateY(-90px);
+        animation: 5s ease-in 0s infinite darkenSunLines;
+      }
+
+      &:nth-child(2) {
+        transform: rotate(20deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(40deg);
+      }
+
+      &:nth-child(4) {
+        transform: rotate(60deg);
+      }
+
+      &:nth-child(5) {
+        transform: rotate(80deg);
+      }
+
+      &:nth-child(6) {
+        transform: rotate(100deg);
+      }
+
+      &:nth-child(7) {
+        transform: rotate(120deg);
+      }
+
+      &:nth-child(8) {
+        transform: rotate(140deg);
+      }
+
+      &:nth-child(9) {
+        transform: rotate(160deg);
+      }
+
+      &:nth-child(10) {
+        transform: rotate(180deg);
+      }
+
+      &:nth-child(11) {
+        transform: rotate(200deg);
+      }
+
+      &:nth-child(12) {
+        transform: rotate(220deg);
+      }
+
+      &:nth-child(13) {
+        transform: rotate(240deg);
+      }
+
+      &:nth-child(14) {
+        transform: rotate(260deg);
+      }
+
+      &:nth-child(15) {
+        transform: rotate(280deg);
+      }
+
+      &:nth-child(16) {
+        transform: rotate(300deg);
+      }
+
+      &:nth-child(17) {
+        transform: rotate(320deg);
+      }
+
+      &:nth-child(18) {
+        transform: rotate(340deg);
+      }
+    }
+
+    .short::after {
+      height: 45px;
+    }
+  }
+
+  .sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 70%;
+    z-index: -1;
+    animation: 5s ease-in-out 0s infinite darkenSky;
+  }
+
+  .grass {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 9;
+    animation: 5s ease-in-out 0s infinite darkenGrass;
+  }
+
+  .tree-top {
+    position: absolute;
+    top: 60px;
+    margin-left: 38px;
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+    inline-size: 360px;
+    block-size: 360px;
+    z-index: 20;
+
+    .tree-top-circle {
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      animation: 5s ease-in-out 0s infinite darkenTreeTop;
+
+      &:nth-child(1),
+      &:nth-child(3),
+      &:nth-child(7),
+      &:nth-child(9) {
+        height: 100px;
+        width: 100px;
+      }
+
+      &:nth-child(1) {
+        justify-self: end;
+        align-self: end;
+        margin-right: -23px;
+        margin-bottom: -23px;
+        z-index: 10;
+      }
+
+      &:nth-child(3) {
+        align-self: end;
+        margin-left: -23px;
+        margin-bottom: -23px;
+      }
+
+      &:nth-child(5) {
+        height: 170px;
+        width: 170px;
+        justify-self: center;
+        align-self: center;
+      }
+
+      &:nth-child(7) {
+        justify-self: end;
+        margin-top: -23px;
+        margin-right: -23px;
+      }
+
+      &:nth-child(8) {
+        margin-bottom: 20px;
+      }
+
+      &:nth-child(9) {
+        margin-top: -23px;
+        margin-left: -23px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .tree-trunk {
+    position: absolute;
+    height: 300px;
+    width: 80px;
+    margin-left: 180px;
+    bottom: 130px;
+    z-index: 10;
+    animation: 5s ease-in-out 0s infinite darkenTrunk;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      border-right: 60px solid transparent;
+      border-left: 60px solid transparent;
+      top: 200px;
+      animation: 5s ease-in-out 0s infinite darkenTrunkBottom;
+    }
+
+    &::before {
+      left: -20px;
+      transform: rotate(-10deg);
+    }
+
+    &::after {
+      right: -20px;
+      transform: rotate(10deg);
+    }
+  }
+}
+
+@keyframes sunset {
+  0% {
+    background-color: $sun;
+  }
+
+  60% {
+    background-color: rgb(199, 110, 2);
+  }
+
+  100% {
+    margin-right: 1000px;
+    margin-top: 700px;
+    transform: rotate(360deg);
+    background-color: rgb(199, 110, 2);
+  }
+}
+
+@keyframes darkenSunLines {
+  0% {
+    background-color: $sun;
+  }
+
+  60% {
+    background-color: rgb(199, 110, 2);
+  }
+
+  100% {
+    background-color: rgb(199, 110, 2);
+  }
+}
+
+@keyframes darkenSky {
+  0% {
+    background-color: $sky;
+  }
+
+  50% {
+    background-color: rgb(139, 51, 89);
+  }
+
+  100% {
+    background-color: darken($sky, 100%);
+  }
+}
+
+@keyframes darkenTreeTop {
+  from {
+    background-color: $treeTop;
+  }
+
+  to {
+    background-color: darken($treeTop, 40%);
+  }
+}
+
+@keyframes darkenTrunk {
+  from {
+    background-color: $trunk;
+  }
+
+  to {
+    background-color: darken($trunk, 50%);
+  }
+}
+
+@keyframes darkenTrunkBottom {
+  from {
+    border-bottom: 120px solid $trunk;
+  }
+
+  to {
+    border-bottom: 120px solid darken($trunk, 50%);
+  }
+}
+
+@keyframes darkenGrass {
+  from {
+    background-color: $grass;
+  }
+
+  to {
+    background-color: darken($grass, 50%);
+  }
+}
