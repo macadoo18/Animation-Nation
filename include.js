@@ -6526,6 +6526,13 @@ let cards = [
     author: 'Marion',
     githubLink: 'https://github.com/marionjudy13'
   },
+  {
+    artName: 'mac-sunset',
+    pageLink: './Art/mac-sunset/index.html',
+    imageLink: './Art/mac-sunset/sunset.gif',
+    author: 'Mac',
+    githubLink: 'https://github.com/macadoo18'
+  }
 ];
 
 // +--------------------------------------------------------------------------------+
